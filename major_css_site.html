@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#090909">
+<meta name="color-scheme" content="dark">
+<title>MAJOR CSS — турнир по Counter Shot: Source</title>
+<meta name="keywords" content="MAJOR CSS, Counter Shot Source, CS Source турнир, киберспорт, призовой фонд">
+<meta name="robots" content="index, follow">
+<meta name="description" content="MAJOR CSS — официальный турнир по Counter Shot: Source. 64 команды, single elimination, призовой фонд 100 000 ₽.">
+<meta property="og:title" content="MAJOR CSS — турнир по Counter Shot: Source">
+<meta property="og:description" content="Официальный турнир по Counter Shot: Source. 64 команды, призовой фонд 100 000 ₽. Регистрация открыта.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MAJOR CSS">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:url" content="__ORIGIN__/">
+<meta property="og:image" content="__ORIGIN__/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="MAJOR CSS — турнир по Counter Shot: Source">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="__ORIGIN__/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M0 0h32v24l-8 8H0z' fill='%23e32636'/%3E%3Ctext x='16' y='23' font-size='20' font-weight='900' text-anchor='middle' fill='white' font-family='Arial'%3EM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Manrope:wght@400;600;800&display=swap">
+<style>
+:root{color-scheme:dark;--bg:#08090b;--panel:#111317;--red:#e32636;--red2:#ff4655;--white:#f4f4f5;--muted:#a3a5ad;--line:#292d35;--amber:#e3a52b;
+--display:"Oswald","Arial Narrow",Impact,sans-serif;--body:"Manrope",Arial,Helvetica,sans-serif}
+html,body{color-scheme:dark;background:var(--bg);color:var(--white)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px;color-scheme:dark}
+body{margin:0;background:var(--bg);color:var(--white);font-family:var(--body);line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+:focus-visible{outline:2px solid var(--red2);outline-offset:3px}
+.wrap{width:min(1240px,calc(100% - 40px));margin:auto}
+.skip{position:absolute;left:-999px;top:8px;background:var(--red);padding:10px 14px;z-index:20;font-weight:800}
+.skip:focus{left:8px}
+
+header{position:sticky;top:0;z-index:10;background:#090a0de6;border-bottom:1px solid #ffffff12;backdrop-filter:blur(14px);padding-top:env(safe-area-inset-top,0px)}
+.nav{height:72px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:12px;font-family:var(--display);font-weight:700;font-size:20px;letter-spacing:2px;line-height:1.1}
+.mark{width:38px;height:38px;display:grid;place-items:center;background:var(--red);clip-path:polygon(0 0,100% 0,100% 75%,75% 100%,0 100%);font-size:20px}
+.brand small{display:block;font-family:var(--body);font-weight:600;color:var(--muted);font-size:10px;letter-spacing:1.5px}
+.links{display:flex;gap:16px;font-size:14px;font-weight:600;color:#c4c5ca}
+.links a{padding:6px 0;border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
+.links a:hover{color:#fff}
+.links a.active{color:#fff;border-color:var(--red)}
+.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--red);padding:14px 22px;font-weight:800;font-size:14px;clip-path:polygon(0 0,100% 0,100% 78%,90% 100%,0 100%);transition:background .2s,transform .2s}
+.btn:hover{background:var(--red2);transform:translateY(-2px)}
+.btn.secondary{background:transparent;box-shadow:inset 0 0 0 1px #ffffff55;clip-path:none}
+.btn.secondary:hover{background:#ffffff12}
+.menu{display:block;background:none;border:0;color:#fff;font-size:26px;width:44px;height:44px;cursor:pointer}
+
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line);background:radial-gradient(ellipse at 80% 50%,#8e142440 0,transparent 40%),linear-gradient(115deg,#090a0d 35%,#170b10 100%)}
+.hero:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(120deg,transparent 0 48px,#ffffff08 49px 50px);pointer-events:none}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;min-height:620px;padding:70px 0}
+.eyebrow{color:var(--red2);font-size:13px;font-weight:800;letter-spacing:.5px}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(64px,11vw,136px);line-height:.86;letter-spacing:-1px;margin:18px 0 22px;text-transform:uppercase}
+h1 span{color:var(--red);display:block}
+.subtitle{font-size:18px;color:#c9cad0;max-width:520px;line-height:1.65;margin:0}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.hero-load{animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
+.hero-load:nth-child(2){animation-delay:.08s}.hero-load:nth-child(3){animation-delay:.16s}.hero-load:nth-child(4){animation-delay:.24s}
+@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+
+.facts{margin:0;display:grid;gap:0;border-left:2px solid var(--red)}
+.facts div{padding:18px 0 18px 24px;border-bottom:1px solid var(--line)}
+.facts div:last-child{border-bottom:0}
+.facts dt{color:var(--muted);font-size:13px;font-weight:600}
+.facts dd{margin:2px 0 0;font-family:var(--display);font-weight:700;font-size:clamp(34px,4.5vw,52px);line-height:1.05}
+
+section{padding:88px 0}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:34px}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(34px,5vw,54px);line-height:1.05;margin:0;text-transform:uppercase;letter-spacing:.5px}
+.section-head p{color:var(--muted);max-width:400px;line-height:1.6;font-size:14px;margin:0}
+
+.about-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:20px}
+.feature{background:var(--panel);border:1px solid var(--line);padding:32px;position:relative;overflow:hidden}
+.feature:after{content:"";position:absolute;width:170px;height:170px;border:1px solid #e3263630;transform:rotate(45deg);right:-75px;bottom:-90px}
+.feature h3{font-size:22px;margin:0 0 12px}
+.feature p{color:var(--muted);font-size:15px;line-height:1.7;max-width:520px;margin:0}
+
+.prize{background:linear-gradient(120deg,#1b0b10,#111317 70%);border:1px solid #6e1b27;padding:38px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.prize strong{font-family:var(--display);font-size:clamp(46px,8vw,84px);line-height:1}
+.prize p{color:var(--muted);margin:8px 0 0;font-size:14px}
+.prize-mark{font-family:var(--display);font-size:96px;line-height:1;color:#e3263633;font-weight:700}
+.note{color:var(--muted);font-size:13px;margin:14px 0 0}
+
+.ladder{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.rung{display:grid;grid-template-columns:150px 1fr 96px;gap:16px;align-items:center}
+.rung-name{font-weight:800;font-size:14px}
+.rung-bar{height:34px;background:#ffffff08;position:relative}
+.rung-bar i{position:absolute;inset:0 auto 0 0;width:calc(var(--w)*1%);background:linear-gradient(90deg,#8e1424,var(--red));clip-path:polygon(0 0,100% 0,calc(100% - 10px) 100%,0 100%);transform-origin:left;transform:scaleX(0);transition:transform .9s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--i)*90ms)}
+.rung-bar b{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-family:var(--display);font-size:18px;z-index:1}
+.rung-count{color:var(--muted);font-size:13px;text-align:right}
+.ladder.in .rung-bar i{transform:none}
+.rung.final .rung-bar i{background:linear-gradient(90deg,var(--amber),#ffd36b)}
+.rung.final .rung-bar b{color:#111}
+.format-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:40px}
+.format-card{background:var(--panel);padding:26px;border:1px solid var(--line)}
+.num{font-family:var(--display);font-size:15px;color:var(--red2);font-weight:700;letter-spacing:1px}
+.format-card h3{margin:16px 0 8px;font-size:19px}
+.format-card p{margin:0;color:var(--muted);font-size:14px;line-height:1.6}
+
+.status{display:flex;align-items:center;gap:8px;color:#d2d3d7;font-size:13px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--amber);box-shadow:0 0 10px var(--amber);animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.35}}
+.notice{background:#101216;border:1px dashed #414650;padding:26px;color:var(--muted);font-size:14px;line-height:1.7;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.notice strong{color:#fff;font-size:16px}
+
+.faq{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start}
+.faq details{background:var(--panel);border:1px solid var(--line);padding:0;transition:border-color .2s}
+.faq details[open]{border-color:#6e1b27}
+.faq summary{cursor:pointer;font-weight:800;font-size:15px;padding:19px 48px 19px 20px;list-style:none;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:after{content:"+";position:absolute;right:20px;top:50%;transform:translateY(-50%);color:var(--red2);font-size:22px;font-weight:400;transition:transform .2s}
+.faq details[open] summary:after{transform:translateY(-50%) rotate(45deg)}
+.faq details p{color:var(--muted);font-size:14px;line-height:1.65;margin:0;padding:0 20px 20px}
+.faq a{color:var(--red2);text-decoration:underline;text-underline-offset:3px}
+
+.cta{padding-top:20px}
+.cta h2{font-size:clamp(30px,5vw,46px);margin:0 0 10px}
+.cta p{color:var(--muted);margin:0 0 20px}
+
+footer{border-top:1px solid var(--line);padding:34px 0 calc(34px + env(safe-area-inset-bottom,0px));color:var(--muted);font-size:13px}
+.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.foot strong{color:#fff;font-family:var(--display);letter-spacing:2px;font-size:16px}
+.foot a:hover{color:#fff}
+
+@media(max-width:860px){
+.hero .wrap{grid-template-columns:1fr;min-height:0;padding:56px 0}
+.facts{grid-template-columns:repeat(3,1fr);border-left:0;border-top:2px solid var(--red)}
+.facts div{padding:16px 12px 0 0;border-bottom:0}
+}
+@media(max-width:760px){
+.links{display:none;position:absolute;top:calc(72px + env(safe-area-inset-top,0px));left:0;right:0;background:#0b0c0f;padding:18px 22px;flex-direction:column;gap:6px;border-bottom:1px solid var(--line)}
+.links a{padding:12px 0;font-size:16px}
+.links.open{display:flex}
+.menu{display:block}
+
+.about-grid,.format-grid,.faq{grid-template-columns:1fr}
+.section-head{display:block}
+.section-head p,.section-head .status{margin-top:12px}
+.prize{padding:26px}.prize-mark{display:none}
+.rung{grid-template-columns:1fr 70px;gap:4px 10px}
+.rung-bar{grid-column:1/-1;grid-row:2;height:30px}
+.rung-count{grid-row:1;grid-column:2}
+section{padding:64px 0}
+}
+@media(prefers-reduced-motion:reduce){
+html{scroll-behavior:auto}
+*,*:before,*:after{animation:none!important;transition:none!important}
+.rung-bar i{transform:none}
+}
+
+.btn{color:#fff;border:0;cursor:pointer;font-family:var(--body)}
+.linkbtn{background:none;border:0;color:var(--muted);cursor:pointer;font:inherit;padding:0;text-decoration:underline;text-underline-offset:3px}
+.linkbtn:hover{color:#fff}
+.adminbar{position:sticky;top:calc(72px + env(safe-area-inset-top,0px));z-index:9;background:#1b0b10;border-bottom:1px solid #6e1b27;font-size:13px}
+.adminbar .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 0;flex-wrap:wrap}
+.adminbar .abtns{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center}
+.adminbar[hidden]{display:none}
+dialog{background:var(--panel);color:var(--white);border:1px solid #6e1b27;padding:0;width:min(400px,calc(100% - 24px));color-scheme:dark}
+dialog::backdrop{background:#000a;backdrop-filter:blur(4px)}
+.dlg{padding:28px;display:grid;gap:14px}
+.dlg h2{font-size:28px}
+.dlg label{display:grid;gap:6px;font-size:13px;font-weight:600;color:var(--muted)}
+.dlg input{background:#0b0c0f;border:1px solid var(--line);color:#fff;padding:13px 14px;font:inherit;font-size:16px;color-scheme:dark;-webkit-color-scheme:dark}
+.dlg input:focus-visible{outline:2px solid var(--red2);outline-offset:0;border-color:var(--red2)}
+.dlg .row{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap}
+.err{color:var(--red2);font-size:13px;min-height:18px;margin:0}
+
+dialog{max-height:min(92vh,100dvh - 24px);overflow:auto;-webkit-overflow-scrolling:touch}
+.dlg textarea{background:#0b0c0f;border:1px solid var(--line);color:#fff;padding:12px 14px;font:inherit;font-size:14px;resize:vertical;color-scheme:dark}
+.dlg textarea:focus-visible{outline:2px solid var(--red2);border-color:var(--red2)}
+#edDlg{width:min(760px,calc(100% - 24px))}
+.hint{color:var(--muted);font-size:12px;margin:0;line-height:1.5}.hint code{color:#fff}
+.news{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.news article{background:var(--panel);border:1px solid var(--line);border-left:2px solid var(--red);padding:24px}
+.news h3{margin:0 0 8px;font-size:18px}.news p{margin:0;color:var(--muted);font-size:14px;line-height:1.65}
+.prizelist{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:8px}
+.prizelist li{display:flex;justify-content:space-between;gap:16px;background:var(--panel);border:1px solid var(--line);padding:16px 20px;font-weight:800}
+.prizelist li span:last-child{font-family:var(--display);font-size:22px;color:var(--amber)}
+.sched{list-style:none;margin:0;padding:0;border-left:2px solid var(--red)}
+.sched li{display:flex;justify-content:space-between;gap:16px;padding:18px 0 18px 24px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.sched li:last-child{border-bottom:0}.sched span:first-child{font-weight:800}.sched span:last-child{color:var(--muted)}
+.teams{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
+.team{background:var(--panel);border:1px solid var(--line);padding:13px 16px;font-weight:600;font-size:14px;display:flex;gap:12px;overflow-wrap:anywhere}
+.team b{font-family:var(--display);color:var(--red2);min-width:24px}
+#bracketBox{max-width:100%;overflow:hidden}
+.bwrap{display:flex;gap:12px;overflow-x:auto;padding-bottom:14px;-webkit-overflow-scrolling:touch;scroll-snap-type:x proximity;max-width:100%}
+.bcol{display:flex;flex-direction:column;width:140px;min-width:140px;max-width:140px;flex:0 0 auto;scroll-snap-align:start}
+.bms{flex:1;display:flex;flex-direction:column;justify-content:space-around;gap:6px}
+.bcol h3{margin:0 0 4px;font-size:11px;color:var(--muted);font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bm{background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.bt{display:block;width:100%;background:none;border:0;border-bottom:1px solid var(--line);color:#fff;padding:8px 10px;text-align:left;font:inherit;font-size:12px;cursor:pointer;min-height:36px;line-height:1.25;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bt:last-child{border-bottom:0}
+.bt:hover:not(:disabled){background:#ffffff0d}
+.bt:disabled{cursor:default;opacity:1;color:#fff}
+.bt.win{background:#e3263638;font-weight:800;box-shadow:inset 3px 0 var(--red)}
+.bt.empty{color:var(--muted)}
+.champ{align-self:center;width:140px;min-width:140px;max-width:140px;flex:0 0 auto;padding:14px 10px;border:1px solid var(--amber);background:#e3a52b14;text-align:center;font-weight:800;scroll-snap-align:start;overflow:hidden;font-size:13px;word-break:break-word}
+.champ small{display:block;color:var(--amber);font-weight:600;margin-bottom:6px}
+/* Мобильная сетка: раунды списком, без огромной высоты */
+.bmob{display:grid;gap:10px}
+.bmob-round{border:1px solid var(--line);background:var(--panel);overflow:hidden}
+.bmob-round>summary{list-style:none;cursor:pointer;padding:12px 14px;font-weight:800;font-size:14px;display:flex;justify-content:space-between;align-items:center;gap:10px;user-select:none}
+.bmob-round>summary::-webkit-details-marker{display:none}
+.bmob-round>summary:after{content:"▾";color:var(--muted);font-size:12px}
+.bmob-round[open]>summary:after{content:"▴"}
+.bmob-round>summary span{color:var(--muted);font-weight:600;font-size:12px}
+.bmob-list{display:grid;gap:6px;padding:0 10px 10px}
+.bmob .bm{border-radius:0}
+.bmob .bt{min-height:40px;font-size:13px;padding:10px 12px;white-space:normal;overflow:visible;text-overflow:clip;word-break:break-word}
+.bmob-champ{border:1px solid var(--amber);background:#e3a52b14;padding:14px;text-align:center;font-weight:800}
+.bmob-champ small{display:block;color:var(--amber);margin-bottom:4px;font-weight:600}
+/* Нельзя ставить .bdesk{display:block} — класс на том же div, что и .bwrap, и ломает flex-ряд колонок */
+.bwrap.bdesk{display:flex}
+.bmob{display:none}
+@media(max-width:760px){
+  .bwrap.bdesk{display:none!important}
+  .bmob{display:grid}
+}
+@media(max-width:860px){.news{grid-template-columns:1fr}.links{gap:6px}}
+.mob{display:none;text-align:left;font-size:16px;font-weight:600;color:var(--red2);padding:12px 0}
+@media(max-width:760px){.mob{display:block}}
+dialog.fb[open]{position:fixed;inset:0;margin:auto;height:fit-content;z-index:100;box-shadow:0 0 0 100vmax #000a}
+.rung{grid-template-columns:150px 1fr 150px}
+@media(max-width:760px){.rung{grid-template-columns:1fr 130px}}
+.dlg select,.dlg input[type="datetime-local"],.dlg input[type="date"],.dlg input[type="time"],.dlg input[type="number"]{
+  background:#0b0c0f;border:1px solid var(--line);color:#fff;padding:12px 14px;font:inherit;font-size:15px;
+  color-scheme:dark only;-webkit-color-scheme:dark;accent-color:var(--red);
+}
+.dlg select option,.dlg select optgroup{background:#0b0c0f;color:#fff}
+.dlg input[type="datetime-local"]::-webkit-calendar-picker-indicator{filter:invert(1);opacity:.85;cursor:pointer}
+.dlg input[type="datetime-local"]::-webkit-datetime-edit,
+.dlg input[type="datetime-local"]::-webkit-datetime-edit-fields-wrapper{color:#fff}
+.dlg input[type="datetime-local"]::-webkit-datetime-edit-text{color:#a3a5ad}
+.dlg input[type="datetime-local"]::-webkit-datetime-edit-month-field,
+.dlg input[type="datetime-local"]::-webkit-datetime-edit-day-field,
+.dlg input[type="datetime-local"]::-webkit-datetime-edit-year-field,
+.dlg input[type="datetime-local"]::-webkit-datetime-edit-hour-field,
+.dlg input[type="datetime-local"]::-webkit-datetime-edit-minute-field,
+.dlg input[type="datetime-local"]::-webkit-datetime-edit-ampm-field{color:#fff}
+.setgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(max-width:640px){
+  .setgrid{grid-template-columns:1fr}
+  #edDlg,#inbDlg,#privDlg{width:calc(100% - 16px);max-width:none;margin:8px auto}
+  .dlg{padding:18px 14px;gap:12px}
+  .dlg h2{font-size:22px}
+  .dlg .row{justify-content:stretch}
+  .dlg .row .btn{flex:1 1 auto;min-width:0;text-align:center}
+  .adminbar{font-size:12px}
+  .adminbar .wrap{flex-direction:column;align-items:flex-start;gap:8px;padding:10px 0}
+  .adminbar .abtns{width:100%}
+  .rrgrid{grid-template-columns:1fr}
+  .rrt{font-size:12px;max-width:100%}
+  .rrt th,.rrt td{padding:8px 6px}
+  .wrap{width:min(1240px,calc(100% - 24px))}
+  #bracketBox{margin:0 -4px}
+  .reg .acts{display:flex;flex-wrap:wrap;gap:6px}
+  .reg .acts .linkbtn{min-height:40px}
+}
+.abtns{display:flex;gap:16px;flex-wrap:wrap}
+.regform{max-width:640px;background:var(--panel);border:1px solid var(--line)}
+.sc{font-size:12px;color:var(--amber);padding:4px 12px;background:#e3a52b14;font-weight:800}
+.sc.tp{color:var(--red2);background:#e3263622}
+.rrt{border-collapse:collapse;width:100%;max-width:680px;font-size:14px;margin-bottom:18px}
+.rrt th,.rrt td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line)}
+.rrt th{color:var(--muted);font-size:12px}.rrt tr:first-child td{color:var(--amber);font-weight:800}
+.rrm summary{cursor:pointer;font-weight:800;margin-bottom:12px}
+.rrgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px}
+.reg{border:1px solid var(--line);background:#0b0c0f;padding:14px 16px;display:grid;gap:6px;margin-bottom:10px;font-size:13px}
+.reg pre{margin:0;white-space:pre-wrap;font:inherit;color:var(--muted)}
+.reg .acts{display:flex;gap:14px;flex-wrap:wrap}
+.st{font-size:11px;font-weight:800;padding:2px 8px;border:1px solid var(--line)}.st.new{color:var(--amber);border-color:var(--amber)}.st.accepted{color:#5ad07a}.st.rejected{color:var(--muted)}
+#inbDlg{width:min(680px,calc(100% - 32px))}
+#privDlg{width:min(600px,calc(100% - 32px))}
+.news article .btn{margin-top:14px}
+.news article .note{margin:10px 0 0}
+.partners{display:flex;flex-wrap:wrap;gap:12px}
+.partners[hidden]{display:none}
+.partner{background:var(--panel);border:1px solid var(--line);padding:18px 28px;font-family:var(--display);font-size:20px;letter-spacing:.5px;transition:border-color .2s}
+a.partner:hover{border-color:var(--red)}
+.cf{color:#5ad07a;border-color:#5ad07a}
+@media(max-width:1320px){
+.links{display:none;position:absolute;top:calc(72px + env(safe-area-inset-top,0px));left:0;right:0;background:#0b0c0f;padding:18px 22px;flex-direction:column;gap:6px;border-bottom:1px solid var(--line)}
+.links a{padding:12px 0;font-size:16px}
+.links.open{display:flex}
+.menu{display:block}
+
+.mob{display:block}
+}
+.subh{font-family:var(--display);font-size:28px;margin:0 0 18px;text-transform:uppercase;letter-spacing:.5px}
+.donate{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-top:16px}
+.pkgs{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.pkg{background:var(--panel);border:1px solid var(--line);padding:28px;display:flex;flex-direction:column}
+.pkg.top{border-color:var(--amber);background:linear-gradient(160deg,#e3a52b14,var(--panel) 60%)}
+.pkg h4{margin:0;font-size:16px;color:var(--muted);font-weight:800}
+.pkg .price{font-family:var(--display);font-weight:700;font-size:40px;line-height:1.1;margin:8px 0 18px}
+.pkg.top .price{color:var(--amber)}
+.pkg ul{margin:0 0 24px;padding:0;list-style:none;display:grid;gap:10px;flex:1;align-content:start}
+.pkg li{font-size:14px;line-height:1.5;color:#d2d3d7;padding-left:20px;position:relative}
+.pkg li:before{content:"";position:absolute;left:0;top:.55em;width:8px;height:8px;background:var(--red);clip-path:polygon(0 0,100% 0,100% 70%,70% 100%,0 100%)}
+.pkg .btn{align-self:flex-start}
+.xhair{position:absolute;right:-110px;top:50%;transform:translateY(-50%);width:640px;height:640px;color:var(--red);opacity:.13;pointer-events:none}
+@media(max-width:860px){.xhair{width:420px;height:420px;right:-150px;top:30%}}
+.links a{padding:11px 0}
+.foot .linkbtn{padding:12px 6px;min-height:44px}
+.dlg label.chk{display:flex;gap:12px;align-items:flex-start;font-size:13px;line-height:1.5}
+.dlg .chk input{width:22px;height:22px;padding:0;flex:none;accent-color:var(--red)}
+.abtns a.linkbtn{color:var(--muted)}
+
+/* === Pro upgrades === */
+.rules-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.rule-card{background:var(--panel);border:1px solid var(--line);padding:24px 26px;position:relative}
+.rule-card h3{margin:0 0 10px;font-size:17px;font-family:var(--display);letter-spacing:.3px}
+.rule-card p,.rule-card ul{margin:0;color:var(--muted);font-size:14px;line-height:1.65}
+.rule-card ul{padding-left:18px}
+.rule-card li{margin-bottom:4px}
+.maps{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px}
+.map{background:var(--panel);border:1px solid var(--line);padding:18px 14px;text-align:center;font-family:var(--display);font-size:16px;letter-spacing:1px;transition:border-color .2s,transform .2s}
+.map:hover{border-color:var(--red);transform:translateY(-2px)}
+.map small{display:block;margin-top:6px;font-family:var(--body);font-size:11px;color:var(--muted);letter-spacing:0;font-weight:600}
+.socials{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.social{display:inline-flex;align-items:center;gap:8px;background:var(--panel);border:1px solid var(--line);padding:12px 18px;font-weight:700;font-size:14px;transition:border-color .2s,background .2s}
+.social:hover{border-color:var(--red);background:#1a0e12}
+.countdown{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+.cd-box{background:var(--panel);border:1px solid var(--line);min-width:72px;padding:14px 10px;text-align:center}
+.cd-box b{display:block;font-family:var(--display);font-size:28px;line-height:1;color:var(--red2)}
+.cd-box span{font-size:11px;color:var(--muted);font-weight:600;letter-spacing:1px;text-transform:uppercase}
+body.menu-open{overflow:hidden}
+.links.open{display:flex}
+.empty{color:var(--muted);font-size:14px;padding:28px;border:1px dashed var(--line);text-align:center;background:#0c0d10}
+.skeleton{background:linear-gradient(90deg,#111317 25%,#1a1c22 50%,#111317 75%);background-size:200% 100%;animation:sk 1.2s infinite;height:18px;border-radius:2px;margin:8px 0}
+@keyframes sk{to{background-position:-200% 0}}
+.live-badge{display:inline-flex;align-items:center;gap:6px;background:#e3263622;color:var(--red2);font-size:12px;font-weight:800;padding:4px 10px;letter-spacing:.5px}
+.live-badge:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--red2);box-shadow:0 0 8px var(--red2);animation:pulse 1.4s infinite}
+
+[hidden]{display:none!important}
+.admdrop{display:none;position:absolute;top:calc(72px + env(safe-area-inset-top,0px));right:20px;background:#0b0c0f;border:1px solid var(--line);padding:6px 18px}
+.admdrop.open{display:flex}
+.admdrop .linkbtn{font-size:14px;padding:12px 0;white-space:nowrap}
+@media(max-width:1320px){.admdrop{display:none!important}}
+@media(max-width:600px){.facts{grid-template-columns:1fr 1fr}.facts div:last-child{grid-column:1/-1}.facts dd{font-size:30px}}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "MAJOR CSS — турнир по Counter Shot: Source",
+  "description": "Киберспортивный турнир по Counter Shot: Source. 64 команды, single elimination, призовой фонд 100 000 ₽.",
+  "sport": "Counter Shot: Source",
+  "organizer": {
+    "@type": "Organization",
+    "name": "MAJOR CSS",
+    "url": "__ORIGIN__/"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "RUB",
+    "availability": "https://schema.org/InStock"
+  },
+  "image": "__ORIGIN__/og-image.png",
+  "url": "__ORIGIN__/"
+}
+</script>
+
+</head>
+<body>
+<noscript><p style="padding:20px;text-align:center">Для работы сайта включите JavaScript.</p></noscript>
+<a class="skip" href="#main">К содержимому</a>
+<header><div class="wrap nav">
+<a class="brand" href="#top" aria-label="MAJOR CSS — наверх"><span class="mark">M</span><span>MAJOR<small>Counter Shot: Source</small></span></a>
+<nav class="links" id="links" aria-label="Разделы"><a href="#prize">Призы</a><a href="#rules">Регламент</a><a href="#maps">Карты</a><a href="#teams">Участники</a><a href="#bracket">Сетка</a><a href="#streams">Трансляции</a><a href="#partners">Партнёры</a><a href="#faq">Вопросы</a><button class="linkbtn mob" id="loginBtn3" type="button">Вход для админов</button></nav>
+<div class="admdrop" id="admDrop"><button class="linkbtn" id="loginBtn" type="button">Вход для админов</button></div>
+<button class="menu" id="menu" aria-label="Открыть меню" aria-expanded="false" aria-controls="links">☰</button>
+</div></header>
+<div class="adminbar" id="adminbar" hidden><div class="wrap"><span>Режим администратора: <strong id="who"></strong> · <span id="abNote">сервер не подключён: изменения видны только вам в этом браузере и пропадут для посетителей. Запустите сайт через server.js</span></span><span class="abtns"><button class="linkbtn" id="regBtn" type="button" hidden></button><a class="linkbtn" id="bkBtn" href="/api/backup" download="major-css-backup.json" hidden>Резервная копия</a><button class="linkbtn" id="inbBtn" type="button" hidden>Заявки <b id="inbN"></b></button><button class="linkbtn" id="editBtn" type="button">Редактировать данные</button><button class="linkbtn" id="logout" type="button">Выйти</button></span></div></div>
+<dialog id="dlg" aria-labelledby="dlgTitle"><form class="dlg" id="loginForm" autocomplete="on" onsubmit="return false">
+<h2 id="dlgTitle">Вход для админов</h2>
+<label>Логин<input id="u" name="username" autocomplete="username" required></label>
+<label>Пароль<input id="pw" name="password" type="password" autocomplete="current-password" required></label>
+<p class="err" id="err" role="alert"></p>
+<div class="row"><button class="btn secondary" type="button" id="cancel">Отмена</button><button class="btn" type="button" id="loginGo">Войти</button></div>
+</form></dialog>
+
+<main id="main">
+<div id="top"></div>
+<section class="hero" style="padding:0"><svg class="xhair" viewBox="0 0 400 400" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><circle cx="200" cy="200" r="150"/><circle cx="200" cy="200" r="90" stroke-dasharray="6 10"/><path d="M200 10v110M200 280v110M10 200h110M280 200h110"/><circle cx="200" cy="200" r="4" fill="currentColor"/></svg><div class="wrap">
+<div>
+<div class="eyebrow hero-load">Counter Shot: Source · Официальный турнир</div>
+<h1 class="hero-load">This is <span>Major.</span></h1>
+<p class="subtitle hero-load"><span data-t="teams">64 команды</span>, одна сетка, один чемпион. Турнир, где проверяют характер, командную игру и хладнокровие.</p>
+<div class="hero-actions hero-load"><a class="btn" href="#register">Подать заявку</a><a class="btn secondary" href="#format">Изучить формат</a></div>
+</div>
+<dl class="facts hero-load">
+<div><dt>Команд в сетке</dt><dd data-t="size">64</dd></div>
+<div><dt>Призовой фонд</dt><dd>100 000 ₽</dd></div>
+<div><dt>Формат</dt><dd data-t="fmt">Single Elimination</dd></div>
+</dl>
+</div></section>
+
+<section id="about"><div class="wrap"><div class="section-head"><h2>Больше, чем турнир</h2><p>MAJOR CSS — главный турнир сезона по Counter Shot: Source. Здесь важен каждый раунд и каждая ошибка.</p></div>
+<div class="about-grid">
+<article class="feature"><h3>История создаётся командами</h3><p>Турнир собирает составы разного уровня — от новых коллективов до опытных команд. У каждой команды есть шанс дойти до финала.</p></article>
+<article class="feature"><h3>Цена одной ошибки</h3><p>Формат на выбывание не прощает ошибок. Победа — дальше. Поражение — конец пути.</p></article>
+</div></div></section>
+
+<section id="news" style="padding-top:0"><div class="wrap"><div class="section-head"><h2>Новости</h2><p>Официальные объявления организаторов.</p></div><div class="news" id="newsList"></div></div></section>
+
+<section id="prize" style="padding-top:0"><div class="wrap"><div class="section-head"><h2>Призовой фонд</h2></div>
+<div class="prize"><div><strong>100 000 ₽</strong><p>Общий призовой фонд турнира</p></div><div class="prize-mark" aria-hidden="true">₽</div></div>
+<div class="donate"><a class="btn" id="donateBtn" href="https://t.me/Aleksus_06" target="_blank" rel="noopener noreferrer">Поддержать призовой фонд ↗</a><span class="note" style="margin:0">Помогите увеличить призовой фонд турнира.</span></div>
+<ul class="prizelist" id="prizeList"></ul><p class="note" id="prizeNote">Предварительное распределение указано выше. Окончательное — до старта сетки.</p></div></section>
+
+<section id="format" style="padding-top:0"><div class="wrap"><div class="section-head"><h2>Формат турнира</h2><p>Single Elimination. Каждый матч отсеивает половину команд. После шести раундов остаётся один чемпион.</p></div>
+<ol class="ladder" id="ladder" aria-label="Раунды турнира"></ol>
+<p class="note" id="ladderNote"></p>
+<div class="format-grid">
+<article class="format-card"><div class="num">1 · Старт</div><h3 data-t="teams">64 команды</h3><p>Стартовая сетка турнира. Каждая команда начинает путь с первого раунда.</p></article>
+<article class="format-card"><div class="num">2 · Игра</div><h3 data-t="fmt">Single Elimination</h3><p data-t="fmtDesc">Матчи на выбывание: победитель проходит в следующий раунд.</p></article>
+<article class="format-card"><div class="num">3 · Финал</div><h3>Один чемпион</h3><p>Команды проходят сетку до решающего матча за титул MAJOR.</p></article>
+</div></div></section>
+
+
+<section id="rules"><div class="wrap">
+<div class="section-head"><h2>Регламент</h2><p>Ключевые правила турнира. Полный регламент капитаны получают после подтверждения участия.</p></div>
+<div class="rules-grid">
+<article class="rule-card"><h3>1. Формат</h3><p>Single Elimination. Поражение = вылет. Размер сетки и BO настраиваются администратором.</p></article>
+<article class="rule-card"><h3>2. Состав</h3><ul><li>Основной ростер — 5 игроков</li><li>Допускается 1–2 замены</li><li>Капитан отвечает за явку и связь</li></ul></article>
+<article class="rule-card"><h3>3. Сервер и античит</h3><p>Официальные сервера турнира. Обязателен античит, который укажут организаторы. Скриншоты/демо по требованию.</p></article>
+<article class="rule-card"><h3>4. Дисциплина</h3><ul><li>Опоздание > 10 мин — тех. поражение</li><li>Оскорбления, читы, твинки — дисквалификация</li><li>Решения судей окончательны</li></ul></article>
+<article class="rule-card"><h3>5. Призы</h3><p>Призовой фонд распределяется после финала. Налоги и комиссии — по правилам платформы выплат.</p></article>
+<article class="rule-card"><h3>6. Связь</h3><p>Все объявления — на сайте. Капитаны обязаны быть на связи в день матча.</p></article>
+</div>
+</div></section>
+
+<section id="maps"><div class="wrap">
+<div class="section-head"><h2>Маппул</h2><p>Карты, на которых пройдёт турнир. Список утверждают организаторы.</p></div>
+<div class="maps" id="mapList"></div>
+<p class="note" id="mapsNote" style="margin-top:16px" hidden></p>
+</div></section>
+
+<section id="schedule" style="padding-top:0"><div class="wrap"><div class="section-head"><h2>Расписание</h2><p>Даты появятся здесь, как только организаторы их утвердят.</p></div><ol class="sched" id="schedList"></ol></div></section>
+
+<section id="teams" style="padding-top:0"><div class="wrap"><div class="section-head"><h2>Участники</h2><p id="teamCount"></p></div><div class="teams" id="teamList"></div>
+<div class="notice" id="applyNote" style="margin-top:16px" hidden><div><strong>Хотите принять участие?</strong><br><span id="applyTxt">Заполните форму заявки ниже. После подачи капитан сразу получит ссылку для подтверждения участия.</span></div><a class="btn" id="applyBtn" href="#register">Подать заявку</a></div></div></section>
+
+<section id="register" style="padding-top:0"><div class="wrap"><div class="section-head"><h2>Заявка на участие</h2><p>Оставьте данные команды. При свободном месте заявка принимается автоматически — писать капитану и дополнительно подтверждать участие не нужно.</p></div>
+<div class="notice" id="regClosed" hidden><div><strong>Приём заявок</strong><br><span></span></div></div>
+<p class="note" id="regInfo" style="margin:0 0 14px"></p>
+<div class="notice" id="regDone" hidden style="flex-direction:column;align-items:stretch"><div><strong id="rdTitle"></strong><br><span id="rdText"></span></div><div style="display:flex;gap:10px;flex-wrap:wrap"><input id="rdLink" readonly aria-label="Ссылка подтверждения" style="flex:1;min-width:240px;background:#0b0c0f;border:1px solid var(--line);color:#fff;padding:12px 14px;font:inherit;font-size:14px"><button class="btn secondary" id="rdCopy" type="button">Копировать</button></div></div>
+<div class="regform dlg" id="regForm">
+<label>Название команды<input id="rTeam" maxlength="40" autocomplete="off"></label>
+<label>Капитан (имя или ник)<input id="rCap" maxlength="60" autocomplete="off"></label>
+<label>Контакт (Telegram, Discord и т.п.)<input id="rContact" maxlength="80" autocomplete="off" placeholder="@nickname или Discord#1234"></label>
+<label>Состав команды (по одному игроку в строке)<textarea id="rRoster" rows="5" maxlength="600"></textarea></label>
+<input id="rWeb" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
+<label class="chk"><input type="checkbox" id="rOk"><span>Согласен на обработку персональных данных на условиях <a href="#privacy" class="privLink" style="color:var(--red2);text-decoration:underline">Политики конфиденциальности</a> и подтверждаю, что игроки из состава знают о подаче заявки.</span></label>
+<p class="err" id="rMsg" role="status"></p>
+<div class="row"><button class="btn" type="button" id="rGo">Отправить заявку</button></div></div></div></section>
+
+<section id="bracket" style="padding-top:0"><div class="wrap"><div class="section-head"><h2>Сетка MAJOR</h2><div class="status"><span class="dot" aria-hidden="true"></span>Обновляется по мере публикации результатов</div></div>
+<div id="bracketBox"></div></div></section>
+
+<section id="streams" style="padding-top:0"><div class="wrap"><div class="section-head"><h2>Трансляции</h2><p>Где смотреть матчи MAJOR.</p></div><div class="news" id="streamList"></div></div></section>
+
+<section id="partners" style="padding-top:0"><div class="wrap"><div class="section-head"><h2>Партнёры</h2><p>Те, кто помогает проводить турнир.</p></div><div class="partners" id="partnerList"></div>
+<div id="pkgWrap" style="margin-top:44px"><h3 class="subh">Пакеты для партнёров</h3><div class="pkgs" id="pkgList"></div></div>
+<div class="notice" style="margin-top:20px"><div><strong>Нужен индивидуальный вариант?</strong><br>Напишите организатору в Telegram, обсудим условия.</div><a class="btn" href="https://t.me/Aleksus_06" target="_blank" rel="noopener">Стать партнёром ↗</a></div></div></section>
+
+<section id="faq" style="padding-top:0"><div class="wrap"><div class="section-head"><h2>Частые вопросы</h2></div><div class="faq">
+<details><summary>Сколько команд участвует?</summary><p>Планируемый масштаб турнира — <span data-t="teams">64 команды</span>.</p></details>
+<details><summary>Как устроен формат турнира?</summary><p data-t="fmtFaq">Система на выбывание: проигравшая команда покидает турнир, победившая играет дальше, пока не определится чемпион.</p></details>
+<details><summary>Какой формат матчей?</summary><p data-t="boFaq"></p></details>
+<details><summary>Как узнать новости и расписание?</summary><p>Все официальные объявления, сетка и расписание публикуются на этой странице.</p></details>
+<details><summary>Куда обращаться по вопросам?</summary><p>По организационным вопросам напишите представителю проекта: <a href="https://t.me/Aleksus_06" target="_blank" rel="noopener">@Aleksus_06</a>.</p></details>
+</div></div></section>
+
+</main>
+
+<footer><div class="wrap foot">
+<div>
+<strong>MAJOR CSS</strong><br>
+<span style="color:var(--muted)">Counter Shot: Source (DEVI)</span>
+<div class="socials" style="margin-top:14px">
+<a class="social" href="https://t.me/Aleksus_06" target="_blank" rel="noopener noreferrer">Telegram ↗</a>
+</div>
+</div>
+<div style="max-width:280px;line-height:1.6">
+© 2026 MAJOR CSS<br>
+Официальная страница турнира<br>
+<a href="#rules" style="color:var(--red2)">Регламент</a> · <a href="#privacy" class="privLink" style="color:var(--red2)">Конфиденциальность</a>
+</div>
+</div></footer>
+
+<script>
+const menu=document.getElementById('menu'),links=document.getElementById('links');
+const setMenu=o=>{links.classList.toggle('open',o);$('admDrop').classList.toggle('open',o);menu.setAttribute('aria-expanded',o);menu.setAttribute('aria-label',o?'Закрыть меню':'Открыть меню');document.body.classList.toggle('menu-open',o)};
+menu.addEventListener('click',()=>setMenu(!links.classList.contains('open')));
+links.querySelectorAll('a,button').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
+document.addEventListener('keydown',e=>{if(e.key==='Escape')setMenu(false)});
+document.addEventListener('click',e=>{if(!e.target.closest('header'))setMenu(false)});
+if('IntersectionObserver' in window){
+  const ladder=document.getElementById('ladder');
+  new IntersectionObserver((es,o)=>es.forEach(e=>{if(e.isIntersecting){ladder.classList.add('in');o.disconnect()}}),{threshold:.3}).observe(ladder);
+  const map={};links.querySelectorAll('a').forEach(a=>map[a.getAttribute('href').slice(1)]=a);
+  const spy=new IntersectionObserver(es=>es.forEach(e=>{const a=map[e.target.id];if(a&&e.isIntersecting){Object.values(map).forEach(x=>x.classList.remove('active'));a.classList.add('active')}}),{rootMargin:'-45% 0px -50% 0px'});
+  Object.keys(map).forEach(id=>{const s=document.getElementById(id);if(s)spy.observe(s)});
+}else{document.getElementById('ladder').classList.add('in')}
+</script>
+<dialog id="edDlg" aria-labelledby="edTitle"><form class="dlg" id="edForm" onsubmit="return false">
+<h2 id="edTitle">Данные сайта</h2>
+<div class="setgrid">
+<label>Приём заявок<select id="edRegOpen"><option value="1">Открыт</option><option value="0">Закрыт</option></select></label>
+<label>Макс. число заявок (0 — без лимита)<input id="edRegMax" type="number" min="0" max="100000"></label>
+<label>Закрыть приём автоматически (ДД.ММ.ГГГГ ЧЧ:ММ)<input id="edRegUntil" type="text" inputmode="numeric" autocomplete="off" placeholder="07.11.2026 18:00" maxlength="16"></label>
+<label>Размер сетки<select id="edSize"><option>8</option><option>16</option><option>32</option><option>64</option></select></label>
+<label>Формат турнира<select id="edFmt"><option value="single">Single Elimination</option><option value="roundrobin">Round Robin (8 и 16 команд)</option></select></label>
+<label>Матчи (BO)<select id="edBo"><option value="1">BO1</option><option value="3">BO3</option><option value="5">BO5</option></select></label>
+<label>Полуфинал<select id="edBoSemi"><option value="1">BO1</option><option value="3">BO3</option><option value="5">BO5</option></select></label>
+<label>Финал<select id="edBoFinal"><option value="1">BO1</option><option value="3">BO3</option><option value="5">BO5</option></select></label>
+</div>
+<label>Карты турнира (по одной в строке: Название | Примечание)<textarea id="edMaps" rows="4" placeholder="Название карты | Примечание (необязательно)"></textarea></label>
+<label>Как выбираются карты (необязательно)<input id="edMapsNote" maxlength="200"></label>
+<p class="hint" style="margin:0">Приём заявок всегда <strong style="color:#fff">автоматический</strong>: свободное место в сетке занимает следующая команда из очереди, подтверждение капитану писать не нужно.</p>
+<label>Организатор (для политики конфиденциальности)<input id="edPrivOrg" maxlength="120"></label>
+<label>Контакт по вопросам данных<input id="edPrivContact" maxlength="120"></label>
+<label>Срок хранения данных<textarea id="edPrivKeep" rows="2" maxlength="300"></textarea></label>
+<label>Новости (одна в строке: Заголовок | Текст)<textarea id="edNews" rows="4"></textarea></label>
+<label>Призовые места (Место | Сумма)<textarea id="edPrizes" rows="3"></textarea></label>
+<label>Расписание (Этап | Когда)<textarea id="edSched" rows="4"></textarea></label>
+<label>Трансляции (Название | Ссылка | Когда)<textarea id="edStreams" rows="3"></textarea></label>
+<label>Партнёры (Название | Ссылка)<textarea id="edPartners" rows="3"></textarea></label>
+<label>Пакеты для партнёров (Название | Цена | Что входит, через «;»)<textarea id="edPkgs" rows="5"></textarea></label>
+<label>Ссылка для поддержки призового фонда (DonationAlerts и т.п.; пусто — кнопка ведёт к организатору)<input id="edDonate" placeholder="https://"></label>
+<label>Команды (по одной в строке, до 64)<textarea id="edTeams" rows="6"></textarea></label>
+<p class="hint" id="edHint">Изменения сохраняются как черновик в этом браузере. Чтобы увидели все посетители, нажмите «Скачать JSON» и вставьте его в файл сайта вместо содержимого блока <code>siteData</code>.</p>
+<div class="row"><button class="btn secondary" type="button" id="edReset">Сбросить черновик</button><button class="btn secondary" type="button" id="edDl">Скачать JSON</button><button class="btn secondary" type="button" id="edClose">Закрыть</button><button class="btn" type="button" id="edSave">Сохранить</button></div>
+</form></dialog>
+<dialog id="inbDlg" aria-labelledby="inbTitle"><div class="dlg"><h2 id="inbTitle">Заявки на участие</h2><div id="inbList"></div><div class="row"><button class="btn secondary" type="button" id="inbPurge">Удалить все заявки</button><button class="btn secondary" type="button" id="inbClose">Закрыть</button></div></div></dialog>
+<dialog id="cfDlg" aria-labelledby="cfTitle"><div class="dlg"><h2 id="cfTitle">Подтверждение участия</h2><p id="cfTxt"></p><p class="err" id="cfMsg"></p><div class="row"><button class="btn secondary" type="button" id="cfNo">Закрыть</button><button class="btn" type="button" id="cfYes">Подтверждаю</button></div></div></dialog>
+<dialog id="privDlg" aria-labelledby="privTitle"><div class="dlg" style="max-width:560px">
+<h2 id="privTitle">Политика конфиденциальности</h2>
+<p style="font-size:13px;color:var(--muted);margin:0">Редакция от 7 ноября 2026</p>
+<p>Какие данные собирает сайт турнира MAJOR CSS, зачем и как их удалить.</p>
+<div style="border-left:3px solid var(--red);background:#111317;padding:12px 14px;font-size:14px;line-height:1.55"><strong>Коротко.</strong> Мы собираем только данные из заявки. Публично показывается только название команды. Имя капитана, контакт и состав видят лишь администраторы. Рекламы и счётчиков нет. Данные можно удалить по запросу.</div>
+<p style="font-size:14px;line-height:1.6"><b>1. Оператор:</b> <span id="privOrgTxt">Организатор турнира MAJOR CSS</span>. Вопросы: <span id="privContactTxt">Telegram: @Aleksus_06</span>.</p>
+<p style="font-size:14px;line-height:1.6"><b>2. Данные из заявки:</b> название команды, имя или ник капитана, ники игроков (если указали) и при желании контакт. Технические данные (IP) — только для защиты от спама.</p>
+<p style="font-size:14px;line-height:1.6"><b>3. Зачем:</b> принять заявку, составить сетку и защитить сайт. Других целей нет.</p>
+<p style="font-size:14px;line-height:1.6"><b>4. Согласие:</b> вы даёте его галочкой в форме. Отозвать можно, написав организатору.</p>
+<p style="font-size:14px;line-height:1.6"><b>5. Кто видит:</b> публично — только название команды. Капитан, контакт и состав — только админы.</p>
+<p style="font-size:14px;line-height:1.6"><b>6. Хранение:</b> <span id="privKeepTxt">до завершения турнира</span>.</p>
+<p style="font-size:14px;line-height:1.6"><b>7. Права:</b> узнать, исправить или удалить данные — напишите организатору.</p>
+<p style="font-size:13px;color:var(--muted)">Полная версия также доступна по адресу <a href="/privacy" target="_blank" rel="noopener" style="color:var(--red2)">/privacy</a> (при работе через сервер).</p>
+<div class="row"><button class="btn secondary" type="button" id="privClose">Закрыть</button></div>
+</div></dialog>
+<dialog id="msDlg" aria-labelledby="msTitle"><div class="dlg">
+<h2 id="msTitle">Результат матча</h2>
+<p id="msInfo" style="margin:0;font-size:14px;line-height:1.5;color:var(--muted)"></p>
+<label>Счёт (например 2:1)<input id="msScore" maxlength="12" placeholder="2:1" autocomplete="off"></label>
+<p class="hint" style="margin:0">Или поставьте техническое поражение сопернику — победитель пройдёт дальше без счёта.</p>
+<div class="row" style="justify-content:stretch;gap:8px">
+<button class="btn secondary" type="button" id="msCancel">Отмена</button>
+<button class="btn secondary" type="button" id="msTP" style="border-color:var(--red2);color:var(--red2)">Тех. поражение</button>
+<button class="btn" type="button" id="msOk">Сохранить</button>
+</div>
+</div></dialog>
+<script type="application/json" id="siteData">{"news": [{"title": "Открыт приём заявок на MAJOR CSS", "text": "Команды подают заявки только через форму на сайте. При свободном месте заявка принимается автоматически — дополнительно подтверждать участие и писать капитанам не нужно. Следите за новостями."}, {"title": "Призовой фонд — 100 000 ₽", "text": "Общий призовой фонд турнира составляет 100 000 рублей. Точное распределение по местам будет опубликовано до старта сетки."}], "prizes": [{"place": "1 место", "sum": "100 000 ₽"}], "schedule": [{"stage": "Приём заявок", "when": "Открыт"}, {"stage": "Закрытие регистрации", "when": "Будет объявлено"}, {"stage": "Публикация сетки", "when": "После подтверждения участников"}, {"stage": "Старт турнира", "when": "Будет объявлено"}, {"stage": "Финал", "when": "Будет объявлено"}], "teams": [], "streams": [], "partners": [], "packages": [{"name": "Бронзовый", "price": "3 000 ₽", "perks": "Логотип в разделе «Партнёры»\nУпоминание в новостях турнира"}, {"name": "Серебряный", "price": "7 000 ₽", "perks": "Всё из «Бронзового»\nУпоминание на трансляциях\nСсылка или промокод для игроков"}, {"name": "Золотой", "price": "15 000 ₽", "perks": "Всё из «Серебряного»\nНазвание финала или приза («при поддержке …»)\nПервое место среди партнёров"}], "donateUrl": "https://t.me/Aleksus_06", "cfg": {"size": 64, "format": "single", "bo": 1, "boSemi": 3, "boFinal": 3}, "results": {}, "maps": [], "mapsNote": "", "regAuto": true, "checkinUntil": "", "privOrg": "Организатор турнира MAJOR CSS", "privContact": "Telegram: @Aleksus_06", "privRetention": "Данные хранятся до завершения турнира. После завершения организаторы удаляют заявки; удалить данные раньше можно по запросу."}</script>
+<script>
+/* Вход админов. ВАЖНО: это проверка на стороне браузера — она скрывает интерфейс, но не защищает данные.
+   Для настоящей защиты нужен серверный вход. Хранятся только соли и хэши, паролей в коде нет. */
+const SALT="0a06588e2d46623e";
+const ADMINS={"admin":"843bcde806b2575aaa46d90ee8231011a1a7172af0d2e7aa6290bd3d2e1d9757"}; /* логин: SHA-256(соль:логин:пароль) */
+const $=id=>document.getElementById(id),dlg=$('dlg');
+function sha256js(str){
+ const rr=(v,a)=>(v>>>a)|(v<<(32-a)),B=[...new TextEncoder().encode(str)],L=B.length*8;
+ B.push(128);while(B.length%64!==56)B.push(0);
+ B.push(0,0,0,0,(L>>>24)&255,(L>>>16)&255,(L>>>8)&255,L&255);
+ const K=[],H=[];
+ for(let n=2;K.length<64;n++){let pr=true;for(let d=2;d*d<=n;d++)if(n%d===0){pr=false;break}
+  if(pr){if(H.length<8)H.push((Math.pow(n,.5)%1)*4294967296|0);K.push((Math.pow(n,1/3)%1)*4294967296|0)}}
+ for(let o=0;o<B.length;o+=64){const w=[];
+  for(let i=0;i<64;i++){if(i<16)w[i]=(B[o+i*4]<<24)|(B[o+i*4+1]<<16)|(B[o+i*4+2]<<8)|B[o+i*4+3];
+   else{const a=w[i-15],b=w[i-2];w[i]=(w[i-16]+(rr(a,7)^rr(a,18)^(a>>>3))+w[i-7]+(rr(b,17)^rr(b,19)^(b>>>10)))|0}}
+  let[a,b,c,d,e,f,g,hh]=H;
+  for(let i=0;i<64;i++){const t1=(hh+(rr(e,6)^rr(e,11)^rr(e,25))+((e&f)^(~e&g))+K[i]+w[i])|0,t2=((rr(a,2)^rr(a,13)^rr(a,22))+((a&b)^(a&c)^(b&c)))|0;
+   hh=g;g=f;f=e;e=(d+t1)|0;d=c;c=b;b=a;a=(t1+t2)|0}
+  [a,b,c,d,e,f,g,hh].forEach((v,i)=>H[i]=(H[i]+v)|0)}
+ return H.map(x=>(x>>>0).toString(16).padStart(8,'0')).join('')}
+const sha=async s=>{
+ try{if(window.crypto&&crypto.subtle)return[...new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s)))].map(b=>b.toString(16).padStart(2,'0')).join('')}catch(e){}
+ return sha256js(s)};
+/* <dialog> для старых телефонов */
+const openD=d=>{if(typeof d.showModal==='function')d.showModal();else{d.classList.add('fb');d.setAttribute('open','')}};
+const closeD=d=>{if(typeof d.close==='function')d.close();else d.removeAttribute('open')};
+function openPrivacy(e){if(e)e.preventDefault();
+ if(typeof DATA!=='undefined'&&DATA){$('privOrgTxt').textContent=DATA.privOrg||'Организатор турнира MAJOR CSS';$('privContactTxt').textContent=DATA.privContact||'Telegram: @Aleksus_06';$('privKeepTxt').textContent=DATA.privRetention||'Данные хранятся до завершения турнира'}
+ openD($('privDlg'))}
+document.querySelectorAll('.privLink').forEach(a=>a.addEventListener('click',openPrivacy));
+$('privClose').onclick=()=>closeD($('privDlg'));
+if(location.hash==='#privacy')setTimeout(openPrivacy,0);
+let fails=0,lockUntil=0;
+let MEM=null,DRAFT=null; /* запасное хранение в памяти: в предпросмотре и приватном режиме браузерное хранилище заблокировано */
+const safeGet=()=>{if(MEM)return MEM;try{return sessionStorage.getItem('admin')}catch(e){return null}};
+const safeSet=v=>{MEM=v||null;try{v?sessionStorage.setItem('admin',v):sessionStorage.removeItem('admin')}catch(e){}};
+function render(){const u=safeGet();$('adminbar').hidden=!u;$('who').textContent=u||'';renderAll();$('inbBtn').hidden=!(API&&u);$('bkBtn').hidden=!(API&&u);$('regBtn').hidden=!(API&&u);if(API&&u)loadRegs();
+ [$('loginBtn'),$('loginBtn3')].forEach(b=>{b.textContent=u?'Выйти':'Вход для админов'})}
+function toggle(){if(safeGet()){logout()}else{$('err').textContent='';openD(dlg);$('u').focus()}}
+$('loginBtn').onclick=$('loginBtn3').onclick=()=>{setMenu(false);toggle()};$('logout').onclick=()=>logout();
+$('cancel').onclick=()=>closeD(dlg);
+async function doLogin(){
+ if(Date.now()<lockUntil){$('err').textContent='Слишком много попыток. Подождите '+Math.ceil((lockUntil-Date.now())/1000)+' с.';return}
+ if(API){const uu=$('u').value.trim().toLowerCase(),r=await api('/login',{method:'POST',body:{user:uu,pass:$('pw').value}});$('pw').value='';if(r.ok){safeSet(uu);closeD(dlg);render()}else $('err').textContent=r.error||'Неверный логин или пароль.';return}
+ let u,hx;try{u=$('u').value.trim().toLowerCase();hx=await sha(SALT+':'+u+':'+$('pw').value)}catch(err){$('err').textContent='Ошибка проверки. Обновите страницу.';return}
+ if(ADMINS[u]&&ADMINS[u]===hx){fails=0;safeSet(u);$('pw').value='';closeD(dlg);render()}
+ else{fails++;$('pw').value='';$('err').textContent='Неверный логин или пароль.';if(fails>=5){lockUntil=Date.now()+30000;fails=0}}
+}
+$('loginGo').onclick=doLogin;
+[$('u'),$('pw')].forEach(i=>i.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();doLogin()}}));
+/* ===== Данные сайта ===== */
+let BASE=JSON.parse($('siteData').textContent),API=false,REGS=[],REGST=null;const PKG0=BASE.packages;
+const h=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const isAdmin=()=>!!safeGet();
+let DATA=BASE;
+function loadData(){let d=null;if(isAdmin()&&!API){try{d=JSON.parse(DRAFT||localStorage.getItem('draft'))}catch(e){}}DATA=Object.assign({news:[],prizes:[],schedule:[],teams:[],streams:[],partners:[],results:{}},d||BASE);if(!Array.isArray(DATA.packages))DATA.packages=PKG0;DATA.donateUrl=DATA.donateUrl||'';DATA.regOpen=DATA.regOpen!==false;DATA.regAuto=true;DATA.checkinUntil='';DATA.maps=Array.isArray(DATA.maps)?DATA.maps:[];DATA.mapsNote=DATA.mapsNote||'';DATA.privOrg=DATA.privOrg||'';DATA.privContact=DATA.privContact||'';DATA.privRetention=DATA.privRetention||'';DATA.regMax=+DATA.regMax||0;DATA.regUntil=DATA.regUntil||'';DATA.cfg=Object.assign({size:64,format:'single',bo:1,boSemi:1,boFinal:1},DATA.cfg||{})}
+function saveDraft(){if(API){BASE=DATA;api('/data',{method:'PUT',body:DATA}).then(r=>{if(!r.ok)alert('Не удалось сохранить: '+(r.error||r.status));else refreshReg()});return}DRAFT=JSON.stringify(DATA);try{localStorage.setItem('draft',JSON.stringify(DATA))}catch(e){}}
+
+
+/* ===== Связь с сервером (если сайт запущен через server.js) ===== */
+const api=(pth,o={})=>fetch('/api'+pth,{method:o.method||'GET',headers:{'Content-Type':'application/json'},credentials:'same-origin',body:o.body?JSON.stringify(o.body):undefined}).then(async r=>({ok:r.ok,status:r.status,...(await r.json().catch(()=>({})))})).catch(()=>({ok:false,error:'Нет связи с сервером'}));
+async function logout(){if(API)await api('/logout',{method:'POST'});safeSet(null);render()}
+
+/* ===== Подписи ===== */
+const FMT={single:'Single Elimination',roundrobin:'Round Robin (круговой)'};
+const f1=n=>n%10===1&&n%100!==11,f2=n=>n%10>=2&&n%10<=4&&(n%100<10||n%100>=20);
+const teamsWord=n=>n+' '+(f1(n)?'команда':f2(n)?'команды':'команд');
+const matchWord=n=>n+' '+(f1(n)?'матч':f2(n)?'матча':'матчей');
+const stageName=n=>n==2?'Финал':n==4?'Полуфинал':n==8?'Четвертьфинал':'1/'+n/2+' финала';
+const boFor=(n,c)=>n==2?c.boFinal:n==4?c.boSemi:c.bo;
+const boText=c=>c.format==='single'?`Система турнира — Single Elimination. Матчи играются до ${c.bo==1?'одной карты (BO1)':'победы в серии BO'+c.bo}`+(c.boSemi!=c.bo?`, полуфиналы — BO${c.boSemi}`:'')+(c.boFinal!=c.bo?`, финал — BO${c.boFinal}`:'')+'. Карты и детали — в регламенте.':`Система турнира — Round Robin, матчи в формате BO${c.bo}. Карты и детали — в регламенте.`;
+const safeUrl=u=>/^https?:\/\/[^\s]+$/i.test(String(u||''))?u:'';
+const resW=rv=>rv==null?null:(typeof rv==='object'?rv.w:rv);
+
+/* ===== Сетки ===== */
+function buildBracket(){
+ const c=DATA.cfg;let cur=DATA.teams.slice(0,c.size);while(cur.length<c.size)cur.push(null);
+ const rounds=[];let r=0;
+ while(cur.length>1){const ms=[],next=[];
+  for(let i=0;i<cur.length;i+=2){const a=cur[i],b=cur[i+1],rv=DATA.results[r+'-'+(i/2)];
+   // Результат только из сохранённых данных. Авто-бай (один соперник пуст) — только в 1-м раунде,
+   // иначе победитель «пролетал» до финала, пока второй матч ещё не сыгран.
+   let wi=resW(rv);
+   if(wi===null&&r===0){if(a&&!b)wi=0;else if(!a&&b)wi=1}
+   if(wi!==null&&!(wi?b:a))wi=null;
+   next.push(wi===null?null:(wi?b:a));
+   ms.push({a,b,wi,sc:(a&&b&&rv&&typeof rv==='object'&&rv.sc)||''})}
+  rounds.push({n:cur.length,ms});cur=next;r++}
+ return{rounds,champ:cur[0]}}
+
+function renderRR(T,adm){
+ const w=T.map(()=>0),pl=T.map(()=>0),ms=[];
+ for(let i=0;i<T.length;i++)for(let j=i+1;j<T.length;j++){const rv=DATA.results['rr:'+i+'-'+j],wi=resW(rv);if(wi!==null){pl[i]++;pl[j]++;w[wi?j:i]++}ms.push({i,j,wi,sc:(rv&&rv.sc)||''})}
+ const order=T.map((t,i)=>i).sort((a,b)=>w[b]-w[a]||pl[b]-pl[a]||String(T[a]).localeCompare(T[b]));
+ const tbl='<div class="bwrap"><table class="rrt"><thead><tr><th>#</th><th>Команда</th><th>И</th><th>В</th><th>П</th></tr></thead><tbody>'+order.map((i,k)=>`<tr><td>${k+1}</td><td>${h(T[i])}</td><td>${pl[i]}</td><td>${w[i]}</td><td>${pl[i]-w[i]}</td></tr>`).join('')+'</tbody></table></div>';
+ const bt=(m,s)=>`<button class="bt${m.wi===s?' win':''}" data-rr="${m.i}-${m.j}" data-s="${s}"${adm?'':' disabled'} title="${h(T[s?m.j:m.i])}">${h(T[s?m.j:m.i])}</button>`;
+ const scCell=sc=>{if(!sc)return'';const tp=/^т\.?\s*п\.?$|^tp$|тех/i.test(String(sc));return`<div class="sc${tp?' tp':''}">${h(tp?'ТП':sc)}</div>`};
+ return (adm?'<p class="note" style="margin:0 0 12px">Нажмите на победителя. Можно указать счёт или поставить техническое поражение сопернику.</p>':'')+tbl+`<details class="rrm"${adm?' open':''}><summary>Матчи (${ms.length}) · BO${DATA.cfg.bo}</summary><div class="rrgrid">`+ms.map(m=>`<div class="bm">${bt(m,0)}${bt(m,1)}${scCell(m.sc)}</div>`).join('')+'</div></details>'}
+
+function renderAll(){
+ loadData();const adm=isAdmin(),c=DATA.cfg,T=DATA.teams.slice(0,c.size);
+ document.querySelectorAll('[data-t]').forEach(el=>{const k=el.dataset.t;
+  el.textContent=k==='teams'?teamsWord(c.size):k==='size'?c.size:k==='fmt'?FMT[c.format]:
+  k==='fmtDesc'?(c.format==='single'?'Матчи на выбывание: победитель проходит в следующий раунд.':'Каждая команда играет со всеми остальными. Выше в таблице тот, у кого больше побед.'):
+  k==='fmtFaq'?(c.format==='single'?'Система на выбывание: проигравшая команда покидает турнир, победившая играет дальше, пока не определится чемпион.':'Круговая система: каждая команда играет с каждой, чемпионом становится лидер таблицы.'):boText(c)});
+ const lad=$('ladder');lad.hidden=c.format!=='single';let L='';
+ for(let n=c.size,i=0;n>=2;n/=2,i++)L+=`<li class="rung${n==2?' final':''}" style="--w:${Math.max(n/c.size*100,3.2)};--i:${i}"><span class="rung-name">${stageName(n)}</span><span class="rung-bar"><i></i><b>${n}</b></span><span class="rung-count">${matchWord(n/2)} · BO${boFor(n,c)}</span></li>`;
+ lad.innerHTML=L;
+ $('ladderNote').textContent=c.format==='single'?`Всего в сетке ${matchWord(c.size-1)}.`:`Всего ${matchWord(c.size*(c.size-1)/2)}: каждая команда играет со всеми.`;
+ $('newsList').innerHTML=DATA.news.length?DATA.news.map(n=>`<article><h3>${h(n.title)}</h3><p>${h(n.text)}</p></article>`).join(''):'<p class="note">Пока нет объявлений.</p>';
+ $('streamList').innerHTML=DATA.streams.length?DATA.streams.map(s=>{const u=safeUrl(s.url);return `<article><h3>${h(s.title)}</h3><p>${h(s.when||'')}</p>${u?`<a class="btn" href="${h(u)}" target="_blank" rel="noopener noreferrer">Смотреть ↗</a>`:'<p class="note">Ссылка появится позже.</p>'}</article>`}).join(''):'<p class="note">Ссылки на трансляции появятся здесь перед стартом турнира.</p>';
+ const pl=$('partnerList');pl.hidden=!DATA.partners.length;pl.innerHTML=DATA.partners.map(x=>{const u=safeUrl(x.url);return u?`<a class="partner" href="${h(u)}" target="_blank" rel="noopener noreferrer sponsored">${h(x.name)}</a>`:`<span class="partner">${h(x.name)}</span>`}).join('');
+ $('regBtn').textContent='Приём заявок: '+(DATA.regOpen?'открыт':'закрыт');
+ $('donateBtn').href=safeUrl(DATA.donateUrl)||'https://t.me/Aleksus_06';
+ const pk=DATA.packages;$('pkgWrap').hidden=!pk.length;
+ $('pkgList').innerHTML=pk.map((x,i)=>`<article class="pkg${pk.length>1&&i===pk.length-1?' top':''}"><h4>${h(x.name)}</h4><div class="price">${h(x.price)}</div><ul>${String(x.perks||'').split(';').map(s=>s.trim()).filter(Boolean).map(s=>`<li>${h(s)}</li>`).join('')}</ul><a class="btn" href="https://t.me/Aleksus_06" target="_blank" rel="noopener">Стать партнёром ↗</a></article>`).join('');
+ $('mapList').innerHTML=DATA.maps.length?DATA.maps.map(x=>`<div class="map">${h(x.name)}${x.note?`<small>${h(x.note)}</small>`:''}</div>`).join(''):'<p class="note" style="margin:0;grid-column:1/-1">Карты будут объявлены организаторами.</p>';
+ $('mapsNote').hidden=!DATA.mapsNote;$('mapsNote').textContent=DATA.mapsNote||'';
+ $('prizeList').innerHTML=DATA.prizes.map(x=>`<li><span>${h(x.place)}</span><span>${h(x.sum)}</span></li>`).join('');
+ $('prizeNote').hidden=DATA.prizes.length>0;
+ $('schedList').innerHTML=DATA.schedule.map(x=>`<li><span>${h(x.stage)}</span><span>${h(x.when)}</span></li>`).join('');
+ $('teamCount').textContent=T.length?`В сетке команд: ${T.length} из ${c.size}.`+(adm&&DATA.teams.length>c.size?` Лишние (${DATA.teams.length-c.size}) в сетку не попадут.`:''):'Список появится после подтверждения участников.';
+ $('teamList').innerHTML=T.map((x,i)=>`<div class="team"><b>${i+1}</b><span>${h(x)}</span></div>`).join('');
+ const box=$('bracketBox');
+ if(T.length<2){box.innerHTML='<div class="notice"><div><strong>Сетка и расписание матчей</strong><br>Появятся на этой странице после подтверждения списка участников.</div></div>';return}
+ if(c.format==='roundrobin'){box.innerHTML=renderRR(T,adm);return}
+ const B=buildBracket();
+ const scHtml=sc=>{if(!sc)return'';const tp=/^т\.?\s*п\.?$|^tp$|тех/i.test(String(sc));return`<div class="sc${tp?' tp':''}">${h(tp?'ТП':sc)}</div>`};
+ const mkBt=(tm,s,r,i)=>`<button class="bt${tm?'':' empty'}${B.rounds[r].ms[i].wi===s?' win':''}" data-r="${r}" data-m="${i}" data-s="${s}"${adm&&tm&&B.rounds[r].ms[i].a&&B.rounds[r].ms[i].b?'':' disabled'}${tm?` title="${h(tm)}"`:''}>${tm?h(tm):'—'}</button>`;
+ const desk='<div class="bwrap bdesk">'+B.rounds.map((R,r)=>`<div class="bcol"><h3>${stageName(R.n)} · BO${boFor(R.n,c)}</h3><div class="bms">`+R.ms.map((m,i)=>`<div class="bm">${mkBt(m.a,0,r,i)}${mkBt(m.b,1,r,i)}${scHtml(m.sc)}</div>`).join('')+'</div></div>').join('')+
+  `<div class="champ"><small>Чемпион</small>${B.champ?h(B.champ):'Определится в финале'}</div></div>`;
+ // На телефоне — раунды аккордеоном (не огромная горизонтальная/вертикальная сетка)
+ const openIdx=B.rounds.findIndex(R=>R.ms.some(m=>m.a&&m.b&&m.wi===null));
+ const mob='<div class="bmob">'+B.rounds.map((R,r)=>{
+   const done=R.ms.filter(m=>m.wi!==null).length,total=R.ms.length,isOpen=r===(openIdx>=0?openIdx:B.rounds.length-1);
+   return `<details class="bmob-round"${isOpen?' open':''}><summary>${stageName(R.n)} · BO${boFor(R.n,c)} <span>${done}/${total}</span></summary><div class="bmob-list">`+
+    R.ms.map((m,i)=>`<div class="bm">${mkBt(m.a,0,r,i)}${mkBt(m.b,1,r,i)}${scHtml(m.sc)}</div>`).join('')+
+    '</div></details>'}).join('')+
+  `<div class="bmob-champ"><small>Чемпион</small>${B.champ?h(B.champ):'Определится в финале'}</div></div>`;
+ box.innerHTML=(adm?'<p class="note" style="margin:0 0 12px">Нажмите на победителя матча. Можно указать счёт или поставить техническое поражение сопернику. Повторное нажатие снимает результат.</p>':'')+desk+mob}
+
+let pendingMatch=null;
+function applyMatchResult(k,s,sc,r,m){
+ DATA.results[k]=sc?{w:s,sc}:{w:s};
+ if(r!==undefined){let mm=m;for(let q=r+1;q<8;q++){mm>>=1;delete DATA.results[q+'-'+mm]}}
+ saveDraft();renderAll()}
+function openMatchDlg(winnerName,loserName,k,s,r,m){
+ pendingMatch={k,s,r,m};
+ $('msInfo').innerHTML='Победитель: <strong style="color:#fff">'+h(winnerName)+'</strong>'+(loserName?'<br>Соперник: '+h(loserName):'');
+ $('msScore').value='';
+ openD($('msDlg'));
+ setTimeout(()=>{try{$('msScore').focus()}catch(e){}},50)}
+$('msCancel').onclick=()=>{pendingMatch=null;closeD($('msDlg'))};
+$('msOk').onclick=()=>{if(!pendingMatch)return;const{k,s,r,m}=pendingMatch;const sc=($('msScore').value||'').trim().slice(0,12);pendingMatch=null;closeD($('msDlg'));applyMatchResult(k,s,sc,r,m)};
+$('msTP').onclick=()=>{if(!pendingMatch)return;const{k,s,r,m}=pendingMatch;pendingMatch=null;closeD($('msDlg'));applyMatchResult(k,s,'ТП',r,m)};
+$('msScore').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();$('msOk').click()}});
+
+$('bracketBox').addEventListener('click',e=>{
+ const b=e.target.closest('.bt');if(!b||b.disabled||!isAdmin())return;
+ const s=+b.dataset.s;let k,r,m,winnerName=b.textContent.trim(),loserName='';
+ if(b.dataset.rr){
+  k='rr:'+b.dataset.rr;
+  const parts=b.dataset.rr.split('-'),i=+parts[0],j=+parts[1],T=DATA.teams.slice(0,DATA.cfg.size);
+  winnerName=T[s?j:i]||winnerName;loserName=T[s?i:j]||'';
+ }else{
+  r=+b.dataset.r;m=+b.dataset.m;k=r+'-'+m;
+  const B=buildBracket(),match=B.rounds[r]&&B.rounds[r].ms[m];
+  if(match){winnerName=(s?match.b:match.a)||winnerName;loserName=(s?match.a:match.b)||''}
+ }
+ if(resW(DATA.results[k])===s){delete DATA.results[k];if(r!==undefined){let mm=m;for(let q=r+1;q<8;q++){mm>>=1;delete DATA.results[q+'-'+mm]}}saveDraft();renderAll();return}
+ openMatchDlg(winnerName,loserName,k,s,r,m)});
+
+/* ===== Редактор ===== */
+const ed=$('edDlg'),inb=$('inbDlg'),lines=s=>s.split('\n').map(x=>x.trim()).filter(Boolean),pair=l=>{const i=l.indexOf('|');return i<0?[l,'']:[l.slice(0,i).trim(),l.slice(i+1).trim()]};
+$('editBtn').onclick=()=>{const c=DATA.cfg;
+ $('edRegOpen').value=DATA.regOpen?'1':'0';$('edRegMax').value=DATA.regMax||0;
+ $('edRegUntil').value=fmtRuDate(DATA.regUntil);
+ $('edMaps').value=DATA.maps.map(x=>[x.name,x.note].join(' | ')).join('\n');$('edMapsNote').value=DATA.mapsNote;$('edPrivOrg').value=DATA.privOrg;$('edPrivContact').value=DATA.privContact;$('edPrivKeep').value=DATA.privRetention;
+ $('edSize').value=c.size;$('edFmt').value=c.format;$('edBo').value=c.bo;$('edBoSemi').value=c.boSemi;$('edBoFinal').value=c.boFinal;
+ $('edNews').value=DATA.news.map(n=>n.title+' | '+n.text).join('\n');
+ $('edPrizes').value=DATA.prizes.map(x=>x.place+' | '+x.sum).join('\n');
+ $('edSched').value=DATA.schedule.map(x=>x.stage+' | '+x.when).join('\n');
+ $('edStreams').value=DATA.streams.map(s=>[s.title,s.url,s.when].join(' | ')).join('\n');
+ $('edPartners').value=DATA.partners.map(x=>[x.name,x.url].join(' | ')).join('\n');
+ $('edPkgs').value=DATA.packages.map(x=>[x.name,x.price,x.perks].join(' | ')).join('\n');
+ $('edDonate').value=DATA.donateUrl||'';
+ $('edTeams').value=DATA.teams.join('\n');openD(ed)};
+$('edSave').onclick=()=>{
+ const c={size:+$('edSize').value,format:$('edFmt').value,bo:+$('edBo').value,boSemi:+$('edBoSemi').value,boFinal:+$('edBoFinal').value};
+ if(c.format==='roundrobin'&&c.size>16){alert('Круговой формат доступен для 8 и 16 команд.');return}
+ const teams=lines($('edTeams').value).slice(0,64),was=JSON.stringify([DATA.teams,DATA.cfg.size,DATA.cfg.format]);
+ DATA.news=lines($('edNews').value).map(l=>{const[a,b]=pair(l);return{title:a,text:b}});
+ DATA.prizes=lines($('edPrizes').value).map(l=>{const[a,b]=pair(l);return{place:a,sum:b}});
+ DATA.schedule=lines($('edSched').value).map(l=>{const[a,b]=pair(l);return{stage:a,when:b}});
+ const parts=l=>l.split('|').map(x=>x.trim());
+ DATA.streams=lines($('edStreams').value).map(l=>{const a=parts(l);return{title:a[0],url:a[1]||'',when:a[2]||''}});
+ DATA.partners=lines($('edPartners').value).map(l=>{const a=parts(l);return{name:a[0],url:a[1]||''}});
+ DATA.packages=lines($('edPkgs').value).map(l=>{const a=parts(l);return{name:a[0],price:a[1]||'',perks:a[2]||''}});
+ DATA.donateUrl=$('edDonate').value.trim();
+ DATA.maps=lines($('edMaps').value).map(l=>{const a=parts(l);return{name:a[0],note:a[1]||''}}).filter(x=>x.name);DATA.mapsNote=$('edMapsNote').value.trim();DATA.regAuto=true;DATA.checkinUntil='';DATA.privOrg=$('edPrivOrg').value.trim();DATA.privContact=$('edPrivContact').value.trim();DATA.privRetention=$('edPrivKeep').value.trim();
+ DATA.regOpen=$('edRegOpen').value==='1';DATA.regMax=Math.max(0,parseInt($('edRegMax').value,10)||0);DATA.regUntil=parseRuDate($('edRegUntil').value)
+ DATA.teams=teams;if(JSON.stringify([teams,c.size,c.format])!==was)DATA.results={};
+ DATA.cfg=c;saveDraft();renderAll();closeD(ed)};
+$('edClose').onclick=()=>closeD(ed);
+$('edReset').onclick=()=>{DRAFT=null;try{localStorage.removeItem('draft')}catch(e){}closeD(ed);renderAll()};
+$('edDl').onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(DATA)],{type:'application/json'}));a.download='site-data.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)};
+
+/* ===== Приём заявок: состояние ===== */
+function renderReg(){
+ const r=REGST;if(!API||!r)return;
+ $('regForm').hidden=!r.open||!$('regDone').hidden;$('regClosed').hidden=r.open;
+ if(!r.open)$('regClosed').querySelector('span').textContent={closed:'Приём заявок закрыт.',full:'Приём заявок закрыт: сетка заполнена, свободных мест нет.',cap:'Приём заявок закрыт: набрано максимальное число заявок.',expired:'Приём заявок завершён.'}[r.reason]||'Приём заявок закрыт.';
+ $('regInfo').textContent=r.open?[r.left!=null?'Свободных мест в сетке: '+r.left+'.':'',r.until?'Приём до '+new Date(r.until).toLocaleString('ru-RU',{dateStyle:'long',timeStyle:'short'})+'.':''].filter(Boolean).join(' '):'';
+}
+const toLocal=iso=>{const d=iso?new Date(iso):null,q=n=>String(n).padStart(2,'0');return d&&!isNaN(d)?`${d.getFullYear()}-${q(d.getMonth()+1)}-${q(d.getDate())}T${q(d.getHours())}:${q(d.getMinutes())}`:''};
+const fromLocal=v=>{const d=v?new Date(v):null;return d&&!isNaN(d)?d.toISOString():''};
+const fmtRuDate=iso=>{const d=iso?new Date(iso):null,q=n=>String(n).padStart(2,'0');return d&&!isNaN(d)?`${q(d.getDate())}.${q(d.getMonth()+1)}.${d.getFullYear()} ${q(d.getHours())}:${q(d.getMinutes())}`:''};
+const parseRuDate=v=>{
+ v=String(v||'').trim();if(!v)return'';
+ let m=v.match(/^(\d{1,2})[./](\d{1,2})[./](\d{4})(?:[ T](\d{1,2}):(\d{2}))?$/);
+ if(m){const d=new Date(+m[3],+m[2]-1,+m[1],+(m[4]||0),+(m[5]||0));return isNaN(d)? '':d.toISOString()}
+ const d=new Date(v);return isNaN(d)?'':d.toISOString()
+};
+async function pullSite(){const d=await api('/data');if(d.ok&&d.site){BASE=d.site;REGST=d.reg||null;renderReg();renderAll()}}
+function showDone(r){
+ $('rdTitle').textContent=r.status==='accepted'?'Команда принята в турнир':'Заявка отправлена';
+ $('rdText').textContent=r.status==='accepted'?'Место в сетке закреплено автоматически. Дополнительно ничего делать не нужно — вы зарегистрированы.':'Заявка получена.';
+ $('rdLink').parentElement.hidden=true;
+ $('regDone').hidden=false;$('regForm').hidden=true;$('regDone').scrollIntoView({behavior:'smooth',block:'center'})}
+$('rdCopy').onclick=async()=>{try{await navigator.clipboard.writeText($('rdLink').value);$('rdCopy').textContent='Скопировано'}catch(e){$('rdLink').select()}};
+async function refreshReg(){const d=await api('/data');if(d.ok){REGST=d.reg||null;renderReg()}}
+$('regBtn').onclick=()=>{DATA.regOpen=!DATA.regOpen;saveDraft();renderAll()};
+
+/* ===== Защита формы от ботов: небольшая вычислительная задача (proof-of-work) ===== */
+const K256=new Int32Array(64),H256=new Int32Array(8),W256=new Int32Array(64);
+(()=>{let n=2,c=0,d=0;while(c<64){let pr=1;for(let i=2;i*i<=n;i++)if(n%i===0){pr=0;break}if(pr){K256[c++]=(Math.pow(n,1/3)%1)*4294967296|0;if(d<8)H256[d++]=(Math.pow(n,.5)%1)*4294967296|0}n++}})();
+function h0(B){ /* один блок SHA-256, возвращает первые 32 бита хэша */
+ for(let i=0;i<16;i++)W256[i]=(B[i*4]<<24)|(B[i*4+1]<<16)|(B[i*4+2]<<8)|B[i*4+3];
+ for(let i=16;i<64;i++){const a=W256[i-15],b=W256[i-2];W256[i]=(W256[i-16]+((a>>>7|a<<25)^(a>>>18|a<<14)^(a>>>3))+W256[i-7]+((b>>>17|b<<15)^(b>>>19|b<<13)^(b>>>10)))|0}
+ let a=H256[0],b=H256[1],c=H256[2],d=H256[3],e=H256[4],f=H256[5],g=H256[6],h=H256[7];
+ for(let i=0;i<64;i++){const t1=(h+((e>>>6|e<<26)^(e>>>11|e<<21)^(e>>>25|e<<7))+((e&f)^(~e&g))+K256[i]+W256[i])|0,t2=(((a>>>2|a<<30)^(a>>>13|a<<19)^(a>>>22|a<<10))+((a&b)^(a&c)^(b&c)))|0;h=g;g=f;f=e;e=(d+t1)|0;d=c;c=b;b=a;a=(t1+t2)|0}
+ return(H256[0]+a)|0}
+function solvePow(nonce,bits){return new Promise(res=>{
+ const pre=new TextEncoder().encode(nonce+':'),B=new Uint8Array(64);let n=0;
+ const step=()=>{const t=performance.now();
+  while(performance.now()-t<12){
+   B.fill(0,pre.length);B.set(pre);const s=String(n),len=pre.length+s.length;
+   for(let i=0;i<s.length;i++)B[pre.length+i]=s.charCodeAt(i);
+   B[len]=128;const L=len*8;B[62]=(L>>8)&255;B[63]=L&255;
+   if(Math.clz32(h0(B))>=bits){res(n);return}
+   n++}
+  setTimeout(step,0)};
+ step()})}
+let POWP=null;
+function prepPow(){POWP=(async()=>{
+ const c=await api('/challenge');if(!c.ok)return{err:c.error||'Не удалось получить задачу защиты.'};
+ const t0=Date.now(),counter=await solvePow(c.nonce,c.bits),wait=3200-(Date.now()-t0);
+ if(wait>0)await new Promise(r=>setTimeout(r,wait));
+ return{token:c.token,counter}})()}
+['rTeam','rCap','rContact','rRoster'].forEach(i=>$(i).addEventListener('focus',()=>{if(!POWP)prepPow()}));
+
+/* ===== Заявки ===== */
+const stLabel=s=>s==='accepted'?'Принята':s==='rejected'?'Отклонена':(DATA.regAuto?'В очереди':'Ждёт проверки');
+function renderInbox(){$('inbList').innerHTML=REGS.length?REGS.map(r=>`<div class="reg"><div><strong>${h(r.team)}</strong> <span class="st ${h(r.status)}">${stLabel(r.status)}</span> <span class="st ${r.confirmed?'cf':''}">${r.confirmed?'✓ Капитан подтвердил':'Ждёт подтверждения'}</span></div><div>Капитан: ${h(r.captain)} · ${h(r.contact)}</div>${r.roster?`<pre>${h(r.roster)}</pre>`:''}<small class="hint">${new Date(r.at).toLocaleString('ru-RU')}</small><div class="acts"><button class="linkbtn" data-a="ok" data-id="${h(r.id)}">Принять</button><button class="linkbtn" data-a="no" data-id="${h(r.id)}">Отклонить</button>${r.confirmed?'':`<button class="linkbtn" data-a="link" data-id="${h(r.id)}">Ссылка подтверждения</button>`}<button class="linkbtn" data-a="del" data-id="${h(r.id)}">Удалить</button></div></div>`).join(''):'<p class="hint">Заявок пока нет. Как только команды начнут регистрироваться — они появятся здесь.</p>'}
+async function loadRegs(){const r=await api('/registrations');if(r.ok){REGS=r.items||[];const n=REGS.filter(x=>x.status==='new').length;$('inbN').textContent=n?'('+n+')':'';renderInbox()}}
+$('inbBtn').onclick=()=>{loadRegs();openD(inb)};
+$('inbPurge').onclick=async()=>{if(!confirm('Удалить ВСЕ заявки с контактами игроков? Команды в сетке останутся. Действие нельзя отменить.'))return;await api('/registrations',{method:'DELETE'});loadRegs()};
+$('inbClose').onclick=()=>closeD(inb);
+$('inbList').addEventListener('click',async e=>{
+ const b=e.target.closest('button[data-a]');if(!b)return;const id=b.dataset.id,a=b.dataset.a,r=REGS.find(x=>x.id===id);
+ if(a==='del'){if(!confirm('Удалить заявку?'))return;await api('/registrations/'+id,{method:'DELETE'})}
+ else if(a==='link'){const l=location.origin+location.pathname+'?confirm='+r.ctoken;try{await navigator.clipboard.writeText(l);b.textContent='Ссылка скопирована'}catch(x){prompt('Скопируйте ссылку и отправьте капитану на его контакт:',l)}return}
+ else{if(a==='ok'&&r&&!r.confirmed&&!confirm('Капитан ещё не подтвердил участие. Принять всё равно?'))return;
+  const x=await api('/registrations/'+id,{method:'PATCH',body:{status:a==='ok'?'accepted':'rejected'}});if(!x.ok)alert(x.error||'Не удалось выполнить действие.')}
+ loadRegs();pullSite()});
+$('rGo').onclick=async()=>{const m=$('rMsg');m.textContent='';
+ const body={team:$('rTeam').value.trim(),captain:$('rCap').value.trim(),contact:$('rContact').value.trim(),roster:$('rRoster').value.trim(),web:$('rWeb').value};
+ if(body.team.length<2||!body.captain){m.textContent='Заполните название команды и имя капитана.';return}
+ if(!$('rOk').checked){m.textContent='Нужно согласие на обработку данных.';return}
+ body.consent=true;
+ $('rGo').disabled=true;m.textContent='Проверка защиты…';
+ if(!POWP)prepPow();const pw=await POWP;POWP=null;
+ if(pw.err){$('rGo').disabled=false;m.textContent=pw.err;return}
+ body.pow={token:pw.token,counter:pw.counter};m.textContent='';
+ const r=await api('/register',{method:'POST',body});$('rGo').disabled=false;if(r.ok)pullSite();else if(r.status!==429)refreshReg();
+ if(r.ok){m.textContent='';showDone(r);['rTeam','rCap','rContact','rRoster'].forEach(i=>$(i).value='');$('rOk').checked=false}else m.textContent=r.error||'Не удалось отправить заявку.'};
+
+async function checkConfirm(){
+ const t=new URLSearchParams(location.search).get('confirm');if(!t||!API||!/^[a-f0-9]{32}$/.test(t))return;
+ const r=await api('/confirm?token='+t),box=$('cfTxt'),yes=$('cfYes');
+ if(!r.ok){box.textContent=r.error||'Ссылка недействительна.';yes.hidden=true}
+ else if(r.confirmed){box.textContent='Участие команды «'+r.team+'» уже подтверждено. Спасибо!';yes.hidden=true}
+ else{box.textContent='Вы подтверждаете, что вы капитан команды «'+r.team+'» и команда участвует в турнире.';yes.hidden=false;
+  yes.onclick=async()=>{yes.disabled=true;const x=await api('/confirm',{method:'POST',body:{token:t}});
+   if(x.ok){box.textContent='Участие подтверждено. Спасибо! Организаторы получили ваше подтверждение.';yes.hidden=true;history.replaceState(null,'',location.pathname)}
+   else{$('cfMsg').textContent=x.error||'Не удалось подтвердить.';yes.disabled=false}}}
+ openD($('cfDlg'))}
+$('cfNo').onclick=()=>closeD($('cfDlg'));
+async function init(){
+ try{const r=await fetch('/api/ping');API=r.ok&&(await r.json()).ok===true}catch(e){API=false}
+ if(API){const d=await api('/data');if(d.ok&&d.site)BASE=d.site;REGST=d.reg||null;const m=await api('/me');safeSet(m.user||null);
+  $('register').hidden=false;renderReg();$('applyNote').hidden=true;$('applyBtn').href='#register';$('applyBtn').removeAttribute('target');$('applyBtn').textContent='Подать заявку';
+  $('abNote').textContent='изменения сохраняются на сервере сразу';$('applyTxt').textContent='Заполните форму ниже. При свободном месте заявка принимается автоматически.';$('edHint').textContent='Изменения сохраняются на сервере и сразу видны всем посетителям.'}
+ render();checkConfirm()}
+
+init();
+</script>
+</body>
+</html>
